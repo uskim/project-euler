@@ -12,19 +12,19 @@ unsigned sum_parity(unsigned a, unsigned b);
 int main()
 {
     // parity: 1 - odd, 2 - even
-    unsigned a = 1, b = 2, a_sign = 1, b_sign = 2, sum = 0;
+    unsigned a = 1, b = 2, a_parity = 1, b_parity = 2, sum = 0;
 
     while(a <= MAX_FIB)
     {
         //printf("a: %d, b: %d\n",a,b);
-        if(a_sign == 2)
+        if(a_parity == 2)
             sum += a;
 
         // determine signs of numbers from next iteration
-        b_sign = a_sign ^ b_sign; 
-        a_sign = a_sign ^ b_sign;
-        b_sign = a_sign ^ b_sign;
-        b_sign = sum_parity(a_sign, b_sign);
+        b_parity = a_parity ^ b_parity; 
+        a_parity = a_parity ^ b_parity;
+        b_parity = a_parity ^ b_parity;
+        b_parity = sum_parity(a_parity, b_parity);
 
         // find next element in Fib sequence
         b = a ^ b;
